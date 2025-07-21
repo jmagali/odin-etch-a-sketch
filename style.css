@@ -1,0 +1,26 @@
+/* FOOTER */
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    height: 7vh;
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.github {
+    height: 3.5vh;
+    width: auto;
+    margin-left: 10px;
+}
+
+.github:hover {
+    height: 3.7vh;
+}
+
+.github:active {
+    height: 3.8vh;
+}
