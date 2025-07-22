@@ -8,6 +8,7 @@ let isEraser = false;
 let isBlack = true;
 let isRainbow = false;
 let isShade = false;
+let penColour = "black";
 
 function updateFillWidth() {
   getOffset(slider);
@@ -41,6 +42,7 @@ function createGridItems() {
         newGridItem.classList.add("grid-item");
         newGridItem.id = `${i}`;
         grid.appendChild(newGridItem);
+        newGridItem.addEventListener("mousedown", function () {changeColour(newGridItem);});
 
         newGridItem.style.width = `${itemSize}%`;
         newGridItem.style.height = `${itemSize}%`;
@@ -55,6 +57,15 @@ function updateGridSizeIndicator() {
 function clearScreen() {
     for (let i = 0; i < val * val; i++) {
         let item = document.getElementById(`${i}`);
+        item.style.backgroundColor = "white";
+    }
+}
+
+function changeColour (item) {
+    if (isPen) {
+        item.style.backgroundColor = penColour;
+    }
+    else {
         item.style.backgroundColor = "white";
     }
 }
