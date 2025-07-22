@@ -124,6 +124,46 @@ button:active {
     width: 135px;
 }
 
+#slider::-webkit-slider-runnable-track  {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #E5D0AC;
+    height: 8px;
+    border-radius: 5px;
+}
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--background);
+    height: 20px;
+    width: 20px;
+    margin-top: -5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+
+.slider-fill {
+    width: 0px;
+    height: 8px;
+    background-color: var(--background);
+    border-radius: 5px;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+}
+
+.slider-container {
+    position: relative; 
+}
 
 /* FOOTER */
 
