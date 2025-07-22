@@ -90,8 +90,20 @@ h5 {
     background-color: black;
 }
 
+.shade-box-behind {
+    border-radius: 3px;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+}
+
 #shading-box {
     background-color: #E6E6E6;
+    z-index: 1;
+    position: absolute;
 } 
 
 button {
