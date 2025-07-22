@@ -135,7 +135,7 @@ button:active {
 #slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    background-color: var(--background);
+    background-color: white;
     height: 20px;
     width: 20px;
     margin-top: -5px;
@@ -154,7 +154,7 @@ button:active {
 .slider-fill {
     width: 0px;
     height: 8px;
-    background-color: var(--background);
+    background-color: white;
     border-radius: 5px;
     position: absolute;
     z-index: 0;
