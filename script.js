@@ -1,5 +1,13 @@
 const slider = document.getElementById("slider");
 const fill = document.getElementById("slider-fill");
+const clearBtn = document.getElementById("clear-grid");
+const val = parseFloat(slider.value);
+
+let isPen = true;
+let isEraser = false;
+let isBlack = true;
+let isRainbow = false;
+let isShade = false;
 
 function updateFillWidth() {
   getOffset(slider);
@@ -7,7 +15,6 @@ function updateFillWidth() {
   slider.style.left = getOffset(slider).left;
   const min = parseFloat(slider.min);
   const max = parseFloat(slider.max);
-  const val = parseFloat(slider.value);
   const percent = ((val - min) / (max - min));
   const sliderWidth = slider.offsetWidth;
   fill.style.width = percent * 135 + "px";
@@ -22,8 +29,7 @@ function getOffset(slider) {
 }
 
 function createGridItems() {
-    const val = parseFloat(slider.value);
-    const grid = document.getElementById("grid")
+    const grid = document.getElementById("grid");
 
     grid.innerHTML = '';
 
@@ -33,6 +39,7 @@ function createGridItems() {
     for (let i = 0; i < val * val; i++) {
         let newGridItem = document.createElement("div");
         newGridItem.classList.add("grid-item");
+        newGridItem.id = `${i}`;
         grid.appendChild(newGridItem);
 
         newGridItem.style.width = `${itemSize}%`;
@@ -41,14 +48,21 @@ function createGridItems() {
 }
 
 function updateGridSizeIndicator() {
-    const val = parseFloat(slider.value);
     text = document.getElementById("grid-size-indicator");
     text.textContent = "Grid Size: " + val + " x " + val;
+}
+
+function clearScreen() {
+    for (let i = 0; i < val * val; i++) {
+        let item = document.getElementById(`${i}`);
+        item.style.backgroundColor = "white";
+    }
 }
 
 slider.addEventListener("input", updateFillWidth);
 slider.addEventListener("input", createGridItems);
 slider.addEventListener("input", updateGridSizeIndicator);
+clearBtn.addEventListener("click", clearScreen);
 
 // Initial call
 updateFillWidth(); 
