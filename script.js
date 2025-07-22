@@ -6,6 +6,7 @@ const eraserBtn = document.getElementById("eraser");
 const blackBtn = document.getElementById("standard-colour");
 const rainbowBtn = document.getElementById("rainbow-colour");
 const shadingBtn = document.getElementById("shading-colour");
+const rainbowBox = document.getElementById("rainbow-box");
 const val = parseFloat(slider.value);
 
 let isPen = true;
@@ -72,7 +73,14 @@ function clearScreen() {
 
 function changeColour (item) {
     if (isPen) {
-        item.style.backgroundColor = penColour;
+        if (isBlack) {
+            item.style.backgroundColor = penColour;
+        }
+        else if (isRainbow) {
+            penColour = generateRainbowColour();
+            item.style.backgroundColor = penColour;
+            indicateRainbowColour(penColour);
+        }
     }
     else {
         item.style.backgroundColor = "white";
@@ -103,6 +111,17 @@ function changeButtonColour () {
     }
 }
 
+function indicateRainbowColour(colour) {
+    if (isRainbow) {
+        rainbowBox.textContent = "";
+        rainbowBox.style.backgroundColor = colour;
+    }
+    else {
+        rainbowBox.textContent = "❓";
+        rainbowBox.style.backgroundColor = "darkgray";
+    }
+}
+
 function generateRainbowColour () {
     let red = Math.floor(Math.random() * 255);
     let green = Math.floor(Math.random() * 255);
@@ -130,12 +149,12 @@ blackBtn.addEventListener("click", function () {
     isShade = false;
     penColour = "black";
     changeButtonColour ();
+    indicateRainbowColour(penColour);
 });
 rainbowBtn.addEventListener("click", function () {
     isBlack = false;
     isRainbow = true;
     isShade = false;
-    penColour = generateRainbowColour();
     changeButtonColour ();
 });
 
