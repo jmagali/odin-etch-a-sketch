@@ -88,17 +88,15 @@ function changeButtonColour () {
         penBtn.style.backgroundColor = "#E5D0AC";
         eraserBtn.style.backgroundColor = "#A31D1D";
     }
-    if (blackBtn) {
+    if (isBlack) {
         blackBtn.style.backgroundColor = "#A31D1D";
         rainbowBtn.style.backgroundColor = "#E5D0AC";
         shadingBtn.style.backgroundColor = "#E5D0AC";
-    }
-    else if (rainbowBtn) {
+    } else if (isRainbow) {
         blackBtn.style.backgroundColor = "#E5D0AC";
         rainbowBtn.style.backgroundColor = "#A31D1D";
         shadingBtn.style.backgroundColor = "#E5D0AC";
-    }
-    else {
+    } else if (isShade) {
         blackBtn.style.backgroundColor = "#E5D0AC";
         rainbowBtn.style.backgroundColor = "#E5D0AC";
         shadingBtn.style.backgroundColor = "#A31D1D";
