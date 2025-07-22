@@ -96,6 +96,7 @@ h5 {
 button {
     padding: 10px 20px;
     width: 80px;
+    height: 40px;
     background-color: var(--buttons);
     color: white;
     text-shadow: 0 0 5px black;
@@ -104,6 +105,18 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+button:hover {
+    background-color: var(--buttons-hover);
+    width: 85px;
+    height: 42.5px;
+}
+
+button:active {
+    background-color: var(--buttons-active);
+    width: 90px;
+    height: 45px;
 }
 
 .tool-container button,
