@@ -21,7 +21,28 @@ function getOffset(slider) {
   };
 }
 
+function createGridItems() {
+    const val = parseFloat(slider.value);
+    const grid = document.getElementById("grid")
+
+    grid.innerHTML = '';
+
+    const itemSize = 100 / val;
+
+    
+    for (let i = 0; i < val * val; i++) {
+        let newGridItem = document.createElement("div");
+        newGridItem.classList.add("grid-item");
+        grid.appendChild(newGridItem);
+
+        newGridItem.style.width = `${itemSize}%`;
+        newGridItem.style.height = `${itemSize}%`;
+    }
+}
+
 slider.addEventListener("input", updateFillWidth);
+slider.addEventListener("input", createGridItems);
 
 // Initial call
 updateFillWidth(); 
+createGridItems();
