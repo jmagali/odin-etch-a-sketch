@@ -35,7 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30vh;
+    padding: 30vh 1vw;
     gap: 20vw;
 }
 
