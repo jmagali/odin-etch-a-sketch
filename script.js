@@ -82,13 +82,14 @@ function changeColour (item) {
         else if (isRainbow) {
             penColour = generateRainbowColour();
             item.style.backgroundColor = penColour;
-            indicateRainbowColour(penColour);
         }
         else {
             penColour = generateShadeColour ();
             item.style.backgroundColor = penColour;
             indicateShadeColour(penColour)
         }
+
+        indicateRainbowColour(penColour);
     }
     else {
         item.style.backgroundColor = "white";
