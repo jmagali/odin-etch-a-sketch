@@ -40,8 +40,15 @@ function createGridItems() {
     }
 }
 
+function updateGridSizeIndicator() {
+    const val = parseFloat(slider.value);
+    text = document.getElementById("grid-size-indicator");
+    text.textContent = "Grid Size: " + val + " x " + val;
+}
+
 slider.addEventListener("input", updateFillWidth);
 slider.addEventListener("input", createGridItems);
+slider.addEventListener("input", updateGridSizeIndicator);
 
 // Initial call
 updateFillWidth(); 
