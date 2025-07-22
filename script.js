@@ -16,6 +16,7 @@ function updateFillWidth() {
   slider.style.left = getOffset(slider).left;
   const min = parseFloat(slider.min);
   const max = parseFloat(slider.max);
+  const val = parseFloat(slider.value);
   const percent = ((val - min) / (max - min));
   const sliderWidth = slider.offsetWidth;
   fill.style.width = percent * 135 + "px";
@@ -31,6 +32,7 @@ function getOffset(slider) {
 
 function createGridItems() {
     const grid = document.getElementById("grid");
+    const val = parseFloat(slider.value);
 
     grid.innerHTML = '';
 
@@ -50,6 +52,7 @@ function createGridItems() {
 }
 
 function updateGridSizeIndicator() {
+    const val = parseFloat(slider.value);
     text = document.getElementById("grid-size-indicator");
     text.textContent = "Grid Size: " + val + " x " + val;
 }
