@@ -1,6 +1,11 @@
 const slider = document.getElementById("slider");
 const fill = document.getElementById("slider-fill");
 const clearBtn = document.getElementById("clear-grid");
+const penBtn = document.getElementById("pen");
+const eraserBtn = document.getElementById("eraser");
+const blackBtn = document.getElementById("standard-colour");
+const rainbowBtn = document.getElementById("rainbow-colour");
+const shadingBtn = document.getElementById("shading-colour");
 const val = parseFloat(slider.value);
 
 let isPen = true;
@@ -73,11 +78,69 @@ function changeColour (item) {
     }
 }
 
+function changeButtonColour () {
+    if (isPen) {
+        penBtn.style.backgroundColor = "#A31D1D";
+        eraserBtn.style.backgroundColor = "#E5D0AC";
+    }
+    else {
+        penBtn.style.backgroundColor = "#E5D0AC";
+        eraserBtn.style.backgroundColor = "#A31D1D";
+    }
+    if (blackBtn) {
+        blackBtn.style.backgroundColor = "#A31D1D";
+        rainbowBtn.style.backgroundColor = "#E5D0AC";
+        shadingBtn.style.backgroundColor = "#E5D0AC";
+    }
+    else if (rainbowBtn) {
+        blackBtn.style.backgroundColor = "#E5D0AC";
+        rainbowBtn.style.backgroundColor = "#A31D1D";
+        shadingBtn.style.backgroundColor = "#E5D0AC";
+    }
+    else {
+        blackBtn.style.backgroundColor = "#E5D0AC";
+        rainbowBtn.style.backgroundColor = "#E5D0AC";
+        shadingBtn.style.backgroundColor = "#A31D1D";
+    }
+}
+
+function generateRainbowColour () {
+    let red = Math.floor(Math.random() * 255);
+    let green = Math.floor(Math.random() * 255);
+    let blue = Math.floor(Math.random() * 255);
+    return `rgb(${red}, ${green}, ${blue})`;
+}
+
 slider.addEventListener("input", updateFillWidth);
 slider.addEventListener("input", createGridItems);
 slider.addEventListener("input", updateGridSizeIndicator);
 clearBtn.addEventListener("click", clearScreen);
+penBtn.addEventListener("click", function () {
+    isPen = true;
+    isEraser = false;
+    changeButtonColour ();
+});
+eraserBtn.addEventListener("click", function () {
+    isPen = false;
+    isEraser = true;
+    changeButtonColour ();
+});
+blackBtn.addEventListener("click", function () {
+    isBlack = true;
+    isRainbow = false;
+    isShade = false;
+    penColour = "black";
+    changeButtonColour ();
+});
+rainbowBtnBtn.addEventListener("click", function () {
+    isBlack = false;
+    isRainbow = true;
+    isShade = false;
+    penColour = generateRainbowColour();
+    changeButtonColour ();
+});
 
 // Initial call
 updateFillWidth(); 
 createGridItems();
+changeButtonColour();
