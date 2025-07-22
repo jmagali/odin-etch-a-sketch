@@ -28,6 +28,17 @@
     text-shadow: 0 0 5px black;
 }
 
+/* MAIN */
+
+.main {
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30vh;
+    gap: 20vw;
+}
+
 /* FOOTER */
 
 .footer {
@@ -39,6 +50,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--header);
+    color: white;
+    border-top: 0.5vh solid var(--buttons);
+    text-shadow: 0 0 5px black;
 }
 
 .github {
