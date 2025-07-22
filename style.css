@@ -203,7 +203,7 @@ button:active {
 .grid-item {
     box-sizing: border-box;
     background-color: white;
-    border: 1px solid black;
+    border: 0.01px solid lightgray;
 }
 
 /* FOOTER */
