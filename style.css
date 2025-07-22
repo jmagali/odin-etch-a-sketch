@@ -35,8 +35,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20vh 1vw;
-    gap: 20vw;
+    padding: 20vh 5vw;
+    gap: 3vw;
+    flex-wrap: wrap;
 }
 
 .control-text,
@@ -150,7 +151,6 @@ button:active {
     background: transparent;
 }
 
-
 .slider-fill {
     width: 0px;
     height: 8px;
@@ -163,6 +163,24 @@ button:active {
 
 .slider-container {
     position: relative; 
+}
+
+.sketch-container {
+    min-width: 60vw;
+    min-height: 60vw;
+    background-color: var(--device);
+    flex-shrink: 0;
+    border-radius: 50px;
+    border: 0.5vh solid var(--buttons);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid {
+    min-width: 50vw;
+    min-height: 50vw;
+    border: 0.5vh solid var(--buttons);
 }
 
 /* FOOTER */
