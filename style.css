@@ -1,7 +1,17 @@
+:root {
+    --header: #6D2323;
+    --background: #A31D1D;
+    --device: #931F1F;
+    --buttons: #E5D0AC;
+    --buttons-hover: #F7EDD1;
+    --buttons-active: #FEF9E1;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Roboto, sans-seif
 }
 
 /* FOOTER */
