@@ -72,6 +72,22 @@
     border: 3px solid var(--buttons);
 }
 
+#rainbow-box {
+    background-color: darkgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#black-box {
+    background-color: black;
+}
+
+#shading-box {
+    background-color: #E6E6E6;
+} 
+
+
 /* FOOTER */
 
 .footer {
