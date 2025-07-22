@@ -7,6 +7,8 @@ const blackBtn = document.getElementById("standard-colour");
 const rainbowBtn = document.getElementById("rainbow-colour");
 const shadingBtn = document.getElementById("shading-colour");
 const rainbowBox = document.getElementById("rainbow-box");
+const shadeBox = document.getElementById("shading-box");
+const gridBox = document.getElementById("grid");
 const val = parseFloat(slider.value);
 
 let isPen = true;
@@ -15,6 +17,7 @@ let isBlack = true;
 let isRainbow = false;
 let isShade = false;
 let penColour = "black";
+let clickCount = 1;
 
 function updateFillWidth() {
   getOffset(slider);
@@ -44,12 +47,12 @@ function createGridItems() {
 
     const itemSize = 100 / val;
 
-    
     for (let i = 0; i < val * val; i++) {
         let newGridItem = document.createElement("div");
         newGridItem.classList.add("grid-item");
         newGridItem.id = `${i}`;
         grid.appendChild(newGridItem);
+
         newGridItem.addEventListener("mousedown", function () {changeColour(newGridItem);});
 
         newGridItem.style.width = `${itemSize}%`;
@@ -80,6 +83,11 @@ function changeColour (item) {
             penColour = generateRainbowColour();
             item.style.backgroundColor = penColour;
             indicateRainbowColour(penColour);
+        }
+        else {
+            penColour = generateShadeColour ();
+            item.style.backgroundColor = penColour;
+            indicateShadeColour(penColour)
         }
     }
     else {
@@ -122,11 +130,24 @@ function indicateRainbowColour(colour) {
     }
 }
 
+function indicateShadeColour(colour) {
+    if (isShade) {
+        shadeBox.style.backgroundColor = colour;
+    }
+    else {
+        shadeBox.style.backgroundColor = "E6E6E6";
+    }
+}
+
 function generateRainbowColour () {
     let red = Math.floor(Math.random() * 255);
     let green = Math.floor(Math.random() * 255);
     let blue = Math.floor(Math.random() * 255);
     return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function generateShadeColour () {
+    return `rgba(0, 0, 0, ${clickCount / 10})`;
 }
 
 slider.addEventListener("input", updateFillWidth);
@@ -156,6 +177,20 @@ rainbowBtn.addEventListener("click", function () {
     isRainbow = true;
     isShade = false;
     changeButtonColour ();
+});
+shadingBtn.addEventListener("click", function () {
+    isBlack = false;
+    isRainbow = false;
+    isShade = true;
+    changeButtonColour ();
+});
+gridBox.addEventListener("click", function () {
+    if (clickCount < 10) {
+        clickCount++;
+    }
+    else {
+        clickCount = 0;
+    }
 });
 
 // Initial call

@@ -185,6 +185,7 @@ button:active {
     border: 0.5vh solid var(--buttons);
     display: flex;
     flex-wrap: wrap;
+    background-color: white;
 }
 
 .grid-item {
