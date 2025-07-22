@@ -63,6 +63,7 @@ function updateGridSizeIndicator() {
 }
 
 function clearScreen() {
+    const val = parseFloat(slider.value);
     for (let i = 0; i < val * val; i++) {
         let item = document.getElementById(`${i}`);
         item.style.backgroundColor = "white";
@@ -132,7 +133,7 @@ blackBtn.addEventListener("click", function () {
     penColour = "black";
     changeButtonColour ();
 });
-rainbowBtnBtn.addEventListener("click", function () {
+rainbowBtn.addEventListener("click", function () {
     isBlack = false;
     isRainbow = true;
     isShade = false;
